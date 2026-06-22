@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="refresh" content="0;url=mailto:tom@erfs-llc.com,kym@efs-llc.com?subject=Your%20Subject%20Here&body=Hello%2C%0A%0AYour%20message%20here.">
   <style>
     body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: sans-serif; }
     a { background: #8B1A1A; color: white; padding: 20px 40px; border-radius: 8px; text-decoration: none; font-size: 20px; }
   </style>
 </head>
 <body>
-  <a href="mailto:tom@erfs-llc.com,kym@efs-llc.com?subject=Your%20Subject%20Here&body=Hello%2C%0A%0AYour%20message%20here.">Tap to redirect to email app</a>
+  <a id="mailtoLink" href="mailto:tom@erfs-llc.com,kym@efs-llc.com?subject=Your%20Subject%20Here&body=Hello%2C%0A%0AYour%20message%20here.">
+    Tap to open email app
+  </a>
+
+  <script>
+    const mailto = "mailto:tom@erfs-llc.com,kym@efs-llc.com?subject=Your%20Subject%20Here&body=Hello%2C%0A%0AYour%20message%20here.";
+
+    // Try to auto-trigger on page load (works on some desktop browsers)
+    window.location.href = mailto;
+
+    // On mobile, simulate a click on the link after a short delay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('mailtoLink').click();
+      }, 300);
+    });
+  </script>
 </body>
 </html>
